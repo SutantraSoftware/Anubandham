@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const cors =  require('cors');
 
 const employeeRoutes = require('./routes/employeeRoutes')
+const religionRoutes = require('./routes/religionRoutes')
+const profileRoutes = require('./routes/profileRoutes')
 
 const {MongoClient} = require('mongodb');
 
@@ -24,6 +26,8 @@ mongoose.connect(process.env.MONGO_URI).then(()=>{
 })
 
 app.use('/employees',employeeRoutes)
+app.use('/religions',religionRoutes)
+app.use('/profiles',profileRoutes)
 
 app.listen(PORT,()=>{
     console.log(`Server Started Successfully @ ${PORT}`);

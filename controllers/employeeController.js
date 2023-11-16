@@ -2,20 +2,22 @@ const Employee = require('../models/Employee')
 
 const createEmployee = async(req,res)=>{
     try{
-        const {name,email,phone,city,role} = req.body
+        const {firstName,lastName,email,phone,role,password,empId} = req.body
 
         const employee = new Employee({
-            name,
+            firstName,
+            lastName,
             email,
             phone,
-            city,
-            role
+            role,
+            password,
+            empId
         })
         await employee.save()
         res.status(201).json(employee)
     }catch(error){
         console.log(error)
-        res.status(500).json({message:'Server Error'})
+        res.status(500).json({message:error})
     }
 }
 
@@ -44,9 +46,9 @@ const singleEmployee = async(req,res)=>{
 
 const updateEmployee = async(req,res)=>{
     try{
-        const {name,email,phone,city,role} = req.body
+        const {firstName,lastName,email,phone,city,role} = req.body
         const myEmployee = await Employee.findByIdAndUpdate(req.params.id,{
-            name,email,phone,city,role
+            firstName,lastName,email,phone,city,role
         });
         if(!myEmployee){
             res.status(404).json({message:'Employee Not Found'})

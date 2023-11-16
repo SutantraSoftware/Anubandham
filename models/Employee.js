@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 
 const employeeSchema = new mongoose.Schema({
     //name,email,phone,city
-    name:{
+    firstName:{
+        type:String,
+        required:true
+    },
+    lastName:{
         type:String,
         required:true
     },
@@ -12,19 +16,19 @@ const employeeSchema = new mongoose.Schema({
     },
     phone:{
         type:Number,
-        default:false
-    },
-    city:{
-        type:String
+        required:true
     },
     role:{
-        name:{
-            type:String,
-            default:false
-        },
-        id:{
-            type:String
-        }
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    empId:{
+        type:String,
+        required:true 
     }
 
 })
