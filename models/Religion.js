@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 
 const religionSchema = new mongoose.Schema({
-    
-    regionName:{
+    religionName:{
             type:String,
         },
-        regionValue:{
+        religionValue:{
             type:String
         }
     
