@@ -41,7 +41,7 @@ const profileSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    motherTounge:{
+    motherTongue:{
         type:String,
         required:true
     },
