@@ -15,6 +15,7 @@ const app = express();
 const PORT = 5050;
 
 dotEnv.config()
+app.use(cors())
 
 app.use(bodyParser.json())
 
