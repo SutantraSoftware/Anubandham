@@ -15,8 +15,19 @@ const app = express();
 const PORT = 5050;
 
 dotEnv.config()
-app.use(cors())
-
+var whitelist = ['http://localhost:4200']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+app.listen(80, function () {
+    console.log('CORS-enabled web server listening on port 80')
+})
 app.use(bodyParser.json())
 
 mongoose.connect(process.env.MONGO_URI).then(()=>{
