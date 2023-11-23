@@ -8,6 +8,7 @@ const customerRoutes =  require('../models/customerRegister')
 
 
 //GET,POST PUT and DELETE
+router.post("/login",cors(),userRegister.loginUser)
 
 router.post("/add-register-user",cors(),userRegister.createCustomer)
 
