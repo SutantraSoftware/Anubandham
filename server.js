@@ -8,6 +8,8 @@ const employeeRoutes = require('./routes/employeeRoutes')
 const religionRoutes = require('./routes/religionRoutes')
 const profileRoutes = require('./routes/profileRoutes')
 const customerRoutes = require('./routes/customerRoutes')
+const casteRoutes = require('./routes/casteRoutes')
+const mothertongueRoutes = require('./routes/mothertongueRoutes')
 
 const {MongoClient} = require('mongodb');
 
@@ -30,6 +32,8 @@ app.use('/employees',employeeRoutes)
 app.use('/religions',religionRoutes)
 app.use('/profiles',profileRoutes)
 app.use('/customer',customerRoutes)
+app.use('/castes',casteRoutes)
+app.use('/mothertongue',mothertongueRoutes)
 
 app.listen(PORT,()=>{
     console.log(`Server Started Successfully @ ${PORT}`);
